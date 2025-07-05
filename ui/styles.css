@@ -1,0 +1,222 @@
+/* --- Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Roboto:wght@400;500&display=swap');
+
+/* --- CSS Variables --- */
+:root {
+    --yt-red: #FF0000;
+    --yt-red-dark: #CC0000;
+    --yt-black: #0F0F0F;
+    --yt-white: #FFFFFF;
+    --yt-grey-light: #f9f9f9;
+    --yt-grey-medium: #e0e0e0;
+    --yt-grey-dark: #606060;
+    --font-header: 'Montserrat', sans-serif;
+    --font-body: 'Roboto', sans-serif;
+    --shadow-light: 0 4px 12px rgba(0,0,0,0.08);
+    --shadow-medium: 0 6px 16px rgba(0,0,0,0.12);
+    --border-radius: 12px;
+}
+
+/* --- Base & Body --- */
+body {
+    background: var(--yt-grey-light);
+    font-family: var(--font-body);
+    color: var(--yt-black);
+    margin: 0;
+}
+
+/* --- Main Container --- */
+.gradio-container {
+    background-color: transparent !important;
+    max-width: 900px !important;
+    margin: 0 auto !important;
+    padding-top: 2rem !important;
+}
+
+/* --- Header Section --- */
+#header-container {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--yt-grey-medium);
+    padding-bottom: 1.5rem;
+    animation: fadeInDown 0.8s ease-out both;
+}
+
+#logo {
+    font-family: var(--font-header);
+    font-weight: 900;
+    font-size: 3rem;
+    letter-spacing: -1.5px;
+    margin: 0;
+}
+
+#logo .tool { color: var(--yt-black); }
+#logo .tube { color: var(--yt-red); }
+
+#description {
+    color: var(--yt-grey-dark);
+    max-width: 600px;
+    margin: 0.5rem auto 0;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* --- Content Wrapper & Cards --- */
+#content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    animation: fadeInUp 0.8s 0.2s ease-out both;
+}
+
+.card {
+    background: var(--yt-white);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--yt-grey-medium);
+    box-shadow: var(--shadow-light);
+    transition: all 0.3s ease;
+    overflow: visible;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-medium);
+}
+
+.card-header {
+    font-family: var(--font-header);
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--yt-black);
+    margin: -2rem -2rem 1.5rem -2rem;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid var(--yt-grey-medium);
+    background-color: var(--yt-grey-light);
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+/* --- Flex layout for inputs side-by-side --- */
+.card-body {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.card-body .textarea-wrapper {
+    flex: 1;
+    min-width: 200px;
+}
+
+/* --- Override Gradio scrollviews to fit content --- */
+.scroll-view {
+    max-height: none !important;
+    overflow: visible !important;
+}
+
+/* --- Input & Output Textboxes --- */
+textarea {
+    width: 100% !important;
+    height: 150px;
+    border: 1px solid var(--yt-grey-medium) !important;
+    border-radius: 8px !important;
+    background-color: var(--yt-white) !important;
+    transition: all 0.3s ease !important;
+    padding: 0.5rem !important;
+    box-sizing: border-box;
+}
+
+textarea:focus {
+    border-color: var(--yt-red) !important;
+    box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.15) !important;
+}
+
+/* --- Submit Button --- */
+#submit-button {
+    background: var(--yt-red) !important;
+    color: var(--yt-white) !important;
+    font-family: var(--font-body);
+    font-weight: 500 !important;
+    font-size: 1.1rem !important;
+    border-radius: 8px !important;
+    padding: 0.8rem 1rem !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 2px 6px rgba(255, 0, 0, 0.3);
+    width: 100%;
+    max-width: 400px;
+    margin: 1.5rem auto;
+    display: block;
+}
+
+#submit-button:hover {
+    background: var(--yt-red-dark) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.4);
+}
+
+/* Pulsing animation for loading state */
+#submit-button.processing {
+    animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+    50% { opacity: 0.7; }
+}
+
+/* --- FAB Reset Button --- */
+#reset-button {
+    position: fixed !important;
+    bottom: 25px !important;
+    right: 25px !important;
+    width: 56px !important;
+    height: 56px !important;
+    border-radius: 50% !important;
+    background: var(--yt-black) !important;
+    color: var(--yt-white) !important;
+    font-size: 24px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+#reset-button:hover {
+    transform: scale(1.1) rotate(15deg);
+    background: var(--yt-red) !important;
+}
+
+.card-header {
+    position: relative !important;
+    margin: 0 !important;
+    padding: 1rem 2rem !important;
+    z-index: 1;
+}
+
+/* --- Status/Loading Area --- */
+#status-area {
+    display: block;
+    text-align: center;
+    padding: 1rem;
+}
+
+/* --- Animations --- */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    #logo { font-size: 2.5rem; }
+    .card { padding: 1.5rem; }
+    .card-header { padding: 0.75rem 1.5rem; font-size: 1.1rem; }
+    #reset-button { bottom: 15px; right: 15px; width: 50px; height: 50px; }
+    .card-body { flex-direction: column; }
+}
