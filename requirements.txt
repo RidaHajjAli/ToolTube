@@ -1,5 +1,4 @@
-gradio
-google-generativeai
-python-dotenv
-youtube-transcript-api
-langcodes
+gradio>=5.29.0
+google-generativeai>=0.8.5
+python-dotenv>=1.1.0
+youtube-transcript-api>=1.1.0
